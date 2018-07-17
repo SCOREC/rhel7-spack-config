@@ -25,6 +25,10 @@ modules:
       - gcc
     blacklist:
       - '%gcc@rhel7_4.8.5'
+    pumi:
+      suffixes:
+        '^metis+int64': int64
+        '^metis~int64': int32
     metis:
       suffixes:
         '+int64': int64
