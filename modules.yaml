@@ -1,0 +1,59 @@
+# -------------------------------------------------------------------------
+# This is the default configuration for Spack's module file generation.
+#
+# Settings here are versioned with Spack and are intended to provide
+# sensible defaults out of the box. Spack maintainers should edit this
+# file to keep it current.
+#
+# Users can override these settings by editing the following files.
+#
+# Per-spack-instance settings (overrides defaults):
+#   $SPACK_ROOT/etc/spack/modules.yaml
+#
+# Per-user settings (overrides default and site settings):
+#   ~/.spack/modules.yaml
+# -------------------------------------------------------------------------
+modules:
+  enable::
+    - lmod
+  lmod:
+    core_compilers:
+      - gcc@rhel7_4.8.5
+    hierarchy:
+      - mpi
+    whitelist:
+      - gcc
+    blacklist:
+      - '%gcc@rhel7_4.8.5'
+    metis:
+      suffixes:
+        '+int64': int64
+        '~int64': int32
+    hypre:
+      suffixes:
+        '+int64': int64
+        '~int64': int32
+    parmetis:
+      suffixes:
+        '^metis+int64': int64
+        '^metis~int64': int32
+    zoltan:
+      suffixes:
+        '^metis+int64': int64
+        '^metis~int64': int32
+    superlu-dist:
+      suffixes:
+        '+int64': int64
+        '~int64': int32
+    hdf5:
+      suffixes:
+        '+fortran': ftn
+    petsc:
+      suffixes:
+        '+int64': int64
+        '~int64': int32
+        '^hdf5+fortran': hdf5+ftn
+        '+complex': complex
+        '~complex': real
+        'clanguage=C++': c++
+        'clanguage=C': c
