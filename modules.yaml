@@ -29,29 +29,36 @@ modules:
       suffixes:
         '^metis+int64': int64
         '^metis~int64': int32
+      autoload: 'all'
     metis:
       suffixes:
         '+int64': int64
         '~int64': int32
+      autoload: 'all'
     hypre:
       suffixes:
         '+int64': int64
         '~int64': int32
+      autoload: 'all'
     parmetis:
       suffixes:
         '^metis+int64': int64
         '^metis~int64': int32
+      autoload: 'all'
     zoltan:
       suffixes:
         '^metis+int64': int64
         '^metis~int64': int32
+      autoload: 'all'
     superlu-dist:
       suffixes:
         '+int64': int64
         '~int64': int32
+      autoload: 'all'
     hdf5:
       suffixes:
         '+fortran': ftn
+      autoload: 'all'
     petsc:
       suffixes:
         '+int64': int64
@@ -61,3 +68,5 @@ modules:
         '~complex': real
         'clanguage=C++': c++
         'clanguage=C': c
+      autoload: 'all'
+
