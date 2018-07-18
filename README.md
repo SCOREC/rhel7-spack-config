@@ -1,6 +1,14 @@
 # rhel7-spack-config
 rhel7 spack configuration and scripts
 
+## useful commands
+
+regenerate lmod module tree:
+
+```
+spack module refresh --module-type lmod --delete-tree  -y
+```
+
 ## contents
 
 compilers.yaml - compiler list
