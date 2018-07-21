@@ -10,6 +10,10 @@ def md5(fname):
         hash_md5.update(chunk)
     return hash_md5.hexdigest()
 
+if len(sys.argv) != 3:
+  print "Usage: {0} <version string> </path/to/tarballs>".format(sys.argv[0])
+  sys.exit() 
+
 version = sys.argv[1]
 path = sys.argv[2]
 dirs = os.listdir( path )
@@ -47,6 +51,7 @@ componentToLicense = {
     'ParallelMeshSimAdapt': 'paralleladapt',
     'ParallelMeshSim': 'parallelmesh'
     }
+
 
 resource = '       \'{name}\': [\'{md5}\', \'{lic}\'],'
 components = ''
