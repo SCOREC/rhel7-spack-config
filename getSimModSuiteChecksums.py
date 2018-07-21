@@ -38,6 +38,8 @@ componentToLicense = {
     'GeomSim': 'base',
     'MeshSim': 'base',
     'MeshSimAdapt': 'base',
+    'MeshSimAdv': 'adv',
+    'MeshSimAdvanced': 'adv',
     'GeomSimAcis': 'acis',
     'GeomSimParasolid': 'parasolid',
     'GeomSimDiscrete': 'discrete',
