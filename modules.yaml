@@ -25,6 +25,10 @@ modules:
       - gcc
     blacklist:
       - '%gcc@rhel7_4.8.5'
+    all:
+      environment:
+        set:
+          '${PACKAGE}_ROOT': '${PREFIX}'
     pumi:
       suffixes:
         '^metis+int64': int64
