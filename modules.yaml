@@ -23,6 +23,11 @@ modules:
       - mpi
     whitelist:
       - gcc
+      - vim
+      - emacs
+      - git
+      - cmake
+      - tmux
     blacklist:
       - '%gcc@rhel7_4.8.5'
     all:

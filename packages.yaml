@@ -58,3 +58,19 @@ packages:
     paths:
       lua@5.1.4: /usr
       buildable: False
+  libx11:
+    paths:
+      libx11@system: /usr
+      buildable: False
+  cairo:
+    paths:
+      cairo@1.14.8: /usr
+      buildable: False
+  pango:
+    paths:
+      pango@1.0: /usr
+      buildable: False
+  bzip2:
+    paths:
+      bzip2@system: /usr
+      buildable: False
