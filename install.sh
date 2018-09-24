@@ -5,6 +5,7 @@ spack install emacs@26.1%gcc@rhel7_4.8.5
 spack install git@2.18.0%gcc@rhel7_4.8.5
 spack install tmux@2.7%gcc@rhel7_4.8.5
 spack install gdb@8.1%gcc@rhel7_4.8.5
+spack install paraview%gcc@rhel7_4.8.5~mpi
 
 spack install cmake%gcc@rhel7_4.8.5
 

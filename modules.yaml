@@ -30,6 +30,7 @@ modules:
       - tmux
       - llvm
       - gdb
+      - paraview
     blacklist:
       - '%gcc@rhel7_4.8.5'
     all:
