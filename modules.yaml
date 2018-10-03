@@ -14,7 +14,7 @@
 #   ~/.spack/modules.yaml
 # -------------------------------------------------------------------------
 modules:
-  enable::
+  enable:
     - lmod
   lmod:
     core_compilers:
@@ -36,6 +36,10 @@ modules:
       environment:
         set:
           '${PACKAGE}_ROOT': '${PREFIX}'
+    simmetrix-simmodsuite:
+      environment:
+        set:
+          'SIM_LICENSE_FILE': '/net/common/meshSim/license/license.txt'
     pumi:
       suffixes:
         '^metis+int64': int64
