@@ -74,6 +74,8 @@ modules:
       suffixes:
         '+fortran': ftn
       autoload: 'all'
+    netcdf:
+      autoload: 'all'
     petsc:
       suffixes:
         '+int64': int64
