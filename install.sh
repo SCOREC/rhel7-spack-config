@@ -24,6 +24,8 @@ for compiler in gcc@4.8.5 gcc@7.3.0; do
   spack install pumi@develop%${compiler} +zoltan ^zoltan +parmetis
   spack install netcdf%${compiler}
   spack install adios%${compiler} +fortran
+  spack install gsl%${compiler}
+  spack install fftw%${compiler}
 done
 
 compiler=gcc@7.3.0
