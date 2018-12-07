@@ -44,6 +44,7 @@ modules:
       suffixes:
         '^metis+int64': int64
         '^metis~int64': int32
+        '+shared': shared
       autoload: 'all'
     metis:
       suffixes:
