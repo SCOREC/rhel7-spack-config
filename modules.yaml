@@ -45,6 +45,7 @@ modules:
         '^metis+int64': int64
         '^metis~int64': int32
         '+shared': shared
+        'simmodsuite=full': sim
       autoload: 'all'
     metis:
       suffixes:
