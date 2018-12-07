@@ -43,6 +43,7 @@ componentToLicense = {
     'GeomSimAcis': 'acis',
     'GeomSimParasolid': 'parasolid',
     'GeomSimDiscrete': 'discrete',
+    'GeomSimDiscreteModeling': 'discrete',
     'GeomSimAbstract': 'abstract',
     'GeomSimAdvanced': 'advmodel',
     'GeomSimImport': 'import',
