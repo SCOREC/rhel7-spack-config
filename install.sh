@@ -28,6 +28,10 @@ for compiler in gcc@4.8.5 gcc@7.3.0; do
   spack install fftw%${compiler}
 done
 
+# install pumi with simmodsuite and shared libs using existing zoltan and cmake
+# (the hashes at the specify those installs)
+#spack install pumi@develop%gcc@7.3.0 +shared ~fortran +zoltan simmodsuite=full ^/uetnhbx ^/i5ahqcy
+
 compiler=gcc@7.3.0
 #uint/real-c hdf5 with fortran
 spack install --keep-stage --test=ALL petsc%${compiler} ^hdf5 +fortran
