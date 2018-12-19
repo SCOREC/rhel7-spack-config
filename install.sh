@@ -48,4 +48,10 @@ spack install --keep-stage --test=ALL petsc%${compiler} +complex +int64 +mumps
 #uint/complex-cxx
 spack install --keep-stage --test=ALL petsc%${compiler} clanguage=C++ +complex +mumps
 #ulong/complex-cxx
-spack install --keep-stage --test=ALL petsc%${compiler} clanguage=C++ +complex +int64 +mumps
+
+# install kokkos and techos with the OpenMP backend via trilinos (techos is
+#  needed by omega_h).
+spack install trilinos@develop%gcc@7.3.0+shared+kokkos+openmp+teuchos~alloptpkgs~amesos~amesos2~anasazi~aztec~belos~boost~cgns~complex~dtk~epetra~epetraext~exodus~explicit_template_instantiation~float~fortran~fortrilinos~gtest~hdf5~hypre~ifpack~ifpack2~intrepid~intrepid2~isorropia~metis~minitensor~ml~muelu~mumps~nox~phalanx~piro~pnetcdf~python~rol~rythmos~sacado~shards~stk~suite-sparse~superlu~superlu-dist~teko~tempus~tpetra~x11~xsdkflags~zlib~zoltan~zoltan2 ^/niuhmad
+
+# install omega_h with the trilinos just installed (hash at the end)
+spack install omega-h%gcc@7.3.0 +trilinos ^/2zim243
