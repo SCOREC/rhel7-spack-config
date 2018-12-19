@@ -1,6 +1,8 @@
 # rhel7-spack-config
 rhel7 spack configuration and scripts
 
+The `install.sh` script maintained in this repo is for documentation purposes (e.g., in case we had to reinstall the entire stack from scratch) and should not be executed as it will not use all of our existing package installs.  More discussion of package installation is below.
+
 ## useful commands
 
 regenerate lmod module tree:
