@@ -13,7 +13,7 @@ spack module refresh --module-type lmod --delete-tree  -y
 
 ## installing new packages
 
-Our spack repo is tracking the master spack branch.  Spack package updates could result in additional installation of packages with little or no package source code changes.  These additional installs can be avoided when installing new packages by first examining the output of the `spack spec -I` command.  If a utility/infrastructure level package, such as cmake or mpich, is marked with a '+' symbol in the leftmost column then it means that the existing install will be used.  If spack does not default to using the existing install you can append the hash of the package to spec command.  
+Our spack repo is tracking the master spack branch.  Spack package updates could result in additional installation of packages with little or no package source code changes.  These additional installs can be avoided when installing new packages by first examining the output of the `spack spec -I` command.  If a utility/infrastructure level package, such as cmake or mpich, is marked with a `[+]` symbol in the leftmost column then it means that the existing install will be used.  If spack does not default to using the existing install you can append the hash of the package to the spec command.  
 
 For example, lets see what happens when we ask for a pumi install using gcc 7.3.0
 
