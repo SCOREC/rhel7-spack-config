@@ -8,7 +8,7 @@ The `install.sh` script maintained in this repo is for documentation purposes (e
 regenerate lmod module tree:
 
 ```
-spack module refresh --module-type lmod --delete-tree  -y
+spack module lmod refresh
 ```
 
 ## installing new packages
