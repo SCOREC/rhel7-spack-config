@@ -51,7 +51,11 @@ spack install --keep-stage --test=ALL petsc%${compiler} clanguage=C++ +complex +
 
 # install kokkos and techos with the OpenMP backend via trilinos (techos is
 #  needed by omega_h).
-spack install trilinos@develop%gcc@7.3.0+shared+kokkos+openmp+teuchos~alloptpkgs~amesos~amesos2~anasazi~aztec~belos~boost~cgns~complex~dtk~epetra~epetraext~exodus~explicit_template_instantiation~float~fortran~fortrilinos~gtest~hdf5~hypre~ifpack~ifpack2~intrepid~intrepid2~isorropia~metis~minitensor~ml~muelu~mumps~nox~phalanx~piro~pnetcdf~python~rol~rythmos~sacado~shards~stk~suite-sparse~superlu~superlu-dist~teko~tempus~tpetra~x11~xsdkflags~zlib~zoltan~zoltan2 ^/niuhmad
+triConfig="+shared+kokkos+openmp+teuchos~alloptpkgs~amesos~amesos2~anasazi~aztec~belos~boost~cgns~complex~dtk~epetra~epetraext~exodus~explicit_template_instantiation~float~fortran~fortrilinos~gtest~hdf5~hypre~ifpack~ifpack2~intrepid~intrepid2~isorropia~metis~minitensor~ml~muelu~mumps~nox~phalanx~piro~pnetcdf~python~rol~rythmos~sacado~shards~stk~suite-sparse~superlu~superlu-dist~teko~tempus~tpetra~x11~xsdkflags~zlib~zoltan~zoltan2"
+spack install trilinos@develop%gcc@7.3.0 $triConfig ^/niuhmad
+# trilinos_enable_debug=on
+spack install trilinos@develop%gcc@7.3.0 +debug$triConfig ^/niuhmad
 
 # install omega_h with the trilinos just installed (hash at the end)
-spack install omega-h%gcc@7.3.0 +trilinos ^/2zim243
+spack install omega-h%gcc@7.3.0 +trilinos ^/2zim243 #~debug
+spack install omega-h%gcc@7.3.0 +trilinos ^/ackkufk #+debug
