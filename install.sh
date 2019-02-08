@@ -61,3 +61,6 @@ spack install trilinos@develop%gcc@7.3.0 +debug~openmp$triConfig ^/niuhmad
 spack install omega-h%gcc@7.3.0 +trilinos ^/2zim243 #~debug+openmp
 spack install omega-h%gcc@7.3.0 +trilinos ^/ackkufk #+debug+openmp
 spack install omega-h%gcc@7.3.0 +trilinos ^/j5qmm43 #+debug~openmp
+
+# install valgrind using mpich and boost
+spack install valgrind%gcc@7.3.0 ^/niuhmad ^/6n3iupn
