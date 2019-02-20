@@ -30,7 +30,9 @@ done
 
 # install pumi with simmodsuite and shared libs using existing zoltan and cmake
 #  the hashes at the end specify the existing installs
-#spack install pumi@develop%gcc@7.3.0 +shared ~fortran +zoltan simmodsuite=full ^/uetnhbx ^/i5ahqcy
+spack install pumi@develop%gcc@7.3.0 +shared ~fortran +zoltan simmodsuite=full ^/uetnhbx ^/i5ahqcy
+# install pumi without simmodsuite and static libs using existing zoltan and cmake
+spack install pumi@develop%gcc@4.8.5 ~fortran~shared simmodsuite=none +zoltan  ^/geowaxe ^/jnmepjt
 
 compiler=gcc@7.3.0
 #uint/real-c hdf5 with fortran
