@@ -52,7 +52,11 @@ componentToLicense = {
     'GeomSimProe': 'granite',
     'MeshSimAdvanced': 'adv',
     'ParallelMeshSimAdapt': 'paralleladapt',
-    'ParallelMeshSim': 'parallelmesh'
+    'ParallelMeshSim': 'parallelmesh',
+    'xgcadios': 'adv',
+    'ace3p': 'adv',
+    'exodus': 'adv',
+    'discretemodeling': 'discrete'
     }
 
 
@@ -61,10 +65,11 @@ components = ''
 # components
 for file in dirs:
    if ".tgz" in file:
+      print("file:", file)
       name = file.split('-')[0]
       d = {
        'name': name,
-       'md5': md5(file),
+       'md5': md5(path+file),
        'lic': componentToLicense[name]
       }
       line = resource.format(**d)
