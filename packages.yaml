@@ -74,3 +74,7 @@ packages:
     paths:
       bzip2@system: /usr
       buildable: False
+  cuda:
+    paths:
+      cuda@10.0: /usr/local/cuda-10.0/
+      buildable: False

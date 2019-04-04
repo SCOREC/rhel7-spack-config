@@ -68,3 +68,7 @@ spack install omega-h%gcc@7.3.0 +trilinos ^/j5qmm43 #+debug~openmp
 
 # install valgrind using mpich and boost
 spack install valgrind%gcc@7.3.0 ^/niuhmad ^/6n3iupn
+
+# install kokkos with the cuda and openmp backends
+spack install kokkos%gcc@7.3.0 +openmp host_arch=HSW
+spack install kokkos%gcc@7.3.0 +cuda +enable_lambda host_arch=HSW gpu_arch=Pascal61

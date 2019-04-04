@@ -97,4 +97,10 @@ modules:
       suffixes:
         '+clang': clang-tools
       autoload: 'all'
+    kokkos:
+      suffixes:
+        '+cuda': cuda
+        '+openmp': openmp
+      autoload: 'all'
+
 
