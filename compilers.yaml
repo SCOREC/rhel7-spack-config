@@ -2,7 +2,10 @@ compilers:
 - compiler:
     environment: {}
     extra_rpaths: []
-    flags: {}
+    flags:
+      cflags:   -mtune=native -march=core2
+      cxxflags: -mtune=native -march=core2
+      fflags:   -mtune=native -march=core2
     modules: []
     operating_system: rhel7
     paths:
