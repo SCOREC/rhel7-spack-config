@@ -1,3 +1,10 @@
+# setup on SCOREC
+
+```
+cd /opt/scorec/spack/rhel7-spack-config/
+source setupSpack.sh
+```
+
 # rhel7-spack-config
 rhel7 spack configuration and scripts
 
