@@ -53,3 +53,6 @@ spack install omega-h%gcc@7.3.0 +trilinos ^/vudtoro #~debug+openmp
 
 # install valgrind
 spack install valgrind%gcc@7.3.0
+
+# cuda aware openmpi
+spack install openmpi%gcc@7.3.0 +cuda
