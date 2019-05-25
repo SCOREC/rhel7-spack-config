@@ -102,5 +102,12 @@ modules:
         '+cuda': cuda
         '+openmp': openmp
       autoload: 'all'
+    omega-h:
+      suffixes:
+        '+mpi': mpi
+        '+trilinos^trilinos+debug': trilinosDebug
+        '+trilinos^trilinos~debug': trilinosOpt
+      autoload: 'all'
+
 
 
