@@ -4,6 +4,7 @@ import os, sys
 import hashlib
 
 def md5(fname):
+  print("fname", fname)
   hash_md5 = hashlib.md5()
   with open(fname, "rb") as f:
     for chunk in iter(lambda: f.read(4096), b""):
@@ -62,6 +63,7 @@ componentToLicense = {
 
 resource = '       \'{name}\': [\'{md5}\', \'{lic}\'],'
 components = ''
+docs = ''
 # components
 for file in dirs:
    if ".tgz" in file:
@@ -74,15 +76,12 @@ for file in dirs:
       }
       line = resource.format(**d)
       components = components + '\n' + line
-
-# docs
-docs = ''
-for file in dirs:
    if ".zip" in file:
+      print("file", file)
       name = file.split('.')[0]
       d = {
        'name': name,
-       'md5': md5(file),
+       'md5': md5(path+file),
        'lic': componentToLicense[name]
       }
       line = resource.format(**d)
