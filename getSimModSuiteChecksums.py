@@ -24,6 +24,7 @@ componentToLicense = {
     'fdcore': 'base',
     'gmcore': 'base',
     'msadapt': 'base',
+    'simlicense': 'base',
     'aciskrnl': 'acis',
     'psint': 'parasolid',
     'pskrnl': 'parasolid',
