@@ -18,10 +18,6 @@ packages:
     compiler: [gcc@4.8.5,gcc@7.3.0,gcc@rhel7_4.8.5]
     providers:
       mpi: [mpich]
-  python:
-    paths:
-      python@2.7.5: /usr
-    buildable: False
   perl:
     paths:
       perl@5.16.3: /usr
@@ -76,5 +72,5 @@ packages:
       buildable: False
   cuda:
     paths:
-      cuda@10.0: /usr/local/cuda-10.0/
+      cuda@10.1: /usr/local/cuda-10.1/
       buildable: False
