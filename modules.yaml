@@ -33,6 +33,7 @@ modules:
       - valgrind
     blacklist:
       - '%gcc@rhel7_4.8.5'
+      - perl@5.16.3
     all:
       environment:
         set:
@@ -107,7 +108,8 @@ modules:
         '+mpi': mpi
         '+trilinos^trilinos+debug': trilinosDebug
         '+trilinos^trilinos~debug': trilinosOpt
+        '+kokkos^kokkos+openmp+debug': kokkosDebugOpenMP
+        '+kokkos^kokkos+openmp~debug': kokkosOpenMP
       autoload: 'all'
-
-
-
+    py-pandas:
+      autoload: 'all'
