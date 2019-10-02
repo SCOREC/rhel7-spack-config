@@ -9,6 +9,22 @@ compilers:
     modules: []
     operating_system: rhel7
     paths:
+      cc: /opt/scorec/spack/install/linux-rhel7-x86_64/gcc-rhel7_4.8.5/llvm-7.0.0-owaae5x6ohl5zphtvp6zt6txjr5i5gi3/bin/clang
+      cxx: /opt/scorec/spack/install/linux-rhel7-x86_64/gcc-rhel7_4.8.5/llvm-7.0.0-owaae5x6ohl5zphtvp6zt6txjr5i5gi3/bin/clang++
+      f77: /opt/scorec/spack/install/linux-rhel7-x86_64/gcc-rhel7_4.8.5/gcc-7.3.0-bt47fwrzijla4xzdx4o4au45yljqptsk/bin/gfortran
+      fc: /opt/scorec/spack/install/linux-rhel7-x86_64/gcc-rhel7_4.8.5/gcc-7.3.0-bt47fwrzijla4xzdx4o4au45yljqptsk/bin/gfortran
+    spec: clang@7.0.0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags:
+      cflags:   -mtune=native -march=core2
+      cxxflags: -mtune=native -march=core2
+      fflags:   -mtune=native -march=core2
+    modules: []
+    operating_system: rhel7
+    paths:
       cc: /opt/scorec/spack/install/linux-rhel7-x86_64/gcc-rhel7_4.8.5/gcc-7.3.0-bt47fwrzijla4xzdx4o4au45yljqptsk/bin/gcc
       cxx: /opt/scorec/spack/install/linux-rhel7-x86_64/gcc-rhel7_4.8.5/gcc-7.3.0-bt47fwrzijla4xzdx4o4au45yljqptsk/bin/g++
       f77: /opt/scorec/spack/install/linux-rhel7-x86_64/gcc-rhel7_4.8.5/gcc-7.3.0-bt47fwrzijla4xzdx4o4au45yljqptsk/bin/gfortran
