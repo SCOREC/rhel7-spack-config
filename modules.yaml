@@ -113,3 +113,5 @@ modules:
       autoload: 'all'
     py-pandas:
       autoload: 'all'
+    py-matplotlib:
+      autoload: 'all'
