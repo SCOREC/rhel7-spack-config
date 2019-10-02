@@ -59,3 +59,6 @@ spack install openmpi%gcc@7.3.0 +cuda
 
 # py-pandas
 spack install py-pandas ^/h47wces ^/fh6jmos # specify python and py-numpy deps
+
+# mpich using clang compiler
+spack install mpich%clang@7.0.0
