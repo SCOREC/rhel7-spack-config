@@ -54,7 +54,8 @@ ParallelMeshSim.zip
 GeomSimParasolid.zip
 )
 
-simUrl=http://www.simmetrix.com/support_area/
+#http://www.simmetrix.com/application/release/M/14.0-190928/release/aciskrnl-linux64.tgz
+simUrl=http://www.simmetrix.com/application/release/
 if [ "$dev" == "yes" ]; then
   simUrl=${simUrl}/DM
 else
