@@ -32,7 +32,6 @@ config:
   module_roots:
     lmod:   /opt/scorec/spack/lmod
     tcl:    /opt/scorec/spack/modules
-    dotkit: $spack/share/spack/dotkit
 
 
   # Temporary locations Spack can try to use for builds.
