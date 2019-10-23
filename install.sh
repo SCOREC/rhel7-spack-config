@@ -62,3 +62,6 @@ spack install py-pandas ^/h47wces ^/fh6jmos # specify python and py-numpy deps
 
 # mpich using clang compiler
 spack install mpich%clang@7.0.0
+
+# hpctoolkit
+spack install hpctoolkit%gcc@7.3.0 ^/sdetzl5 ^/h47wces
