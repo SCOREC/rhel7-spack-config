@@ -5,11 +5,11 @@ import hashlib
 
 def md5(fname):
   print("fname", fname)
-  hash_md5 = hashlib.md5()
+  hash_256 = hashlib.sha256()
   with open(fname, "rb") as f:
     for chunk in iter(lambda: f.read(4096), b""):
-        hash_md5.update(chunk)
-    return hash_md5.hexdigest()
+        hash_256.update(chunk)
+    return hash_256.hexdigest()
 
 if len(sys.argv) != 3:
   print "Usage: {0} <version string> </path/to/tarballs>".format(sys.argv[0])
