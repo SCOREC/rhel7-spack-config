@@ -37,6 +37,9 @@ cp /path/to/the/dir/with/the/yaml/files/compilers.yaml etc/spack/.
 # as they have not yet been installed - not sure if this is completely necessary
 ```
 
+Create a sub-directory named `XX.Y-YYMMDD` and download the corresponding
+Simmetrix SimModSuite tarballs and zip files into the `spackDev` directory.
+
 ## install GCC 6.5.0
 
 The base GCC 4.8.5 compiler provided with RedHat7 cannot compile LLVM 9.0.0. GCC
