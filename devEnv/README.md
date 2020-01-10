@@ -11,11 +11,17 @@ likely some mistakes.
 ## contents
 
 compilers.yaml - compiler locations and flags
+
 config.yaml - spack install directories and options
+
 modules.yaml - module name and hierarchy
+
 packages.yaml - pre-installed packages, architecture target
+
 README.md - this file
+
 setupSpack.sh - setup the env for using spack
+
 spack.yaml - list of packages to install
 
 ## setup
