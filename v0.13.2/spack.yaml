@@ -29,9 +29,9 @@ spack:
   - valgrind   %gcc@6.5.0 -mpi
   - octave     %gcc@6.5.0
   - py-pandas  %gcc@6.5.0
-  - llvm@9.0.0 %gcc@6.5.0
+  - llvm@8.0.0 %gcc@6.5.0
   - openmpi    %gcc@7.4.0 +cuda
   - $pumiSim
   - matrix:
     - [mpich, $pumi, $petscSpecs, adios+fortran, gsl, fftw]
-    - ['%gcc@7.4.0', '%clang@9.0.0']
+    - ['%gcc@7.4.0', '%clang@8.0.0']
