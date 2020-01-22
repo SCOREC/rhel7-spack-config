@@ -5,8 +5,7 @@ built with GCC and LLVM compilers on the SCOREC RedHat7 workstations.  The
 packages are compiled with flags that support optimized execution on the various
 generations of Intel and AMD CPUs.
 
-Note, this readme was written after installing all the packages.  There are
-likely some mistakes.
+This environment is locked to Spack version v0.13.2.
 
 ## contents
 
