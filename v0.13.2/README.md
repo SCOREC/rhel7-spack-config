@@ -26,16 +26,16 @@ spack.yaml - list of packages to install
 ## setup
 
 ```
-git clone git@github.com:spack/spack.git spackDev
+git clone git@github.com:spack/spack.git spack_v0.13.2
 cd !$
 git checkout v0.13.2
 # add the simmetrix-simmodsuite package from the develop branch
 git cherry-pick 5ddf5e2
 # create the environment
-spack env create dev
-spack env activate dev
+spack env create v0.13.2
+spack env activate v0.13.2
 # copy the yaml files into the dev
-cp /path/to/the/dir/with/the/yaml/files/* var/spack/environments/dev/.
+cp /path/to/the/dir/with/the/yaml/files/* var/spack/environments/v0.13.2/.
 # copy the compiler yaml file into the spack etc dir
 cp /path/to/the/dir/with/the/yaml/files/compilers.yaml etc/spack/.
 # comment out the gcc 6.5.0, 7.4.0 and llvm sections of compilers.yaml 
@@ -43,7 +43,7 @@ cp /path/to/the/dir/with/the/yaml/files/compilers.yaml etc/spack/.
 ```
 
 Create a sub-directory named `XX.Y-YYMMDD` and download the corresponding
-Simmetrix SimModSuite tarballs and zip files into the `spackDev` directory.
+Simmetrix SimModSuite tarballs and zip files into the `spack_v0.13.2` directory.
 
 ## install GCC 6.5.0
 
@@ -80,7 +80,7 @@ If all goes well then in a new terminal the following commands should provide
 access to the two stacks of modules; gcc7.4.0 w/ mpich and llvm9.0.0 w/ mpich.
 
 ```
-module use /opt/scorec/spack/dev/lmod/linux-rhel7-x86_64/Core
+module use /opt/scorec/spack/v0.13.2/lmod/linux-rhel7-x86_64/Core
 module load gcc mpich
 module av
 module purge

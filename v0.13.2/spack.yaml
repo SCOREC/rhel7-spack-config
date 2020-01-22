@@ -16,8 +16,12 @@ spack:
     - petsc +complex +mumps +int64
   - pumi:
     - pumi@develop +zoltan ^zoltan+parmetis
-  - pumiSim:
-    - pumi@develop %gcc@7.4.0 +shared simmodsuite=full +zoltan ^zoltan+parmetis
+  - pumiSim15:
+    - pumi@develop %gcc@7.4.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@15.0-200110dev
+  - pumiSim14:
+    - pumi@develop %gcc@7.4.0 +shared simmodsuite=full
+      +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@14.0-191122
   specs:
   - gcc@7.4.0  %gcc@6.5.0
   - vim        %gcc@6.5.0
@@ -29,9 +33,10 @@ spack:
   - valgrind   %gcc@6.5.0 -mpi
   - octave     %gcc@6.5.0
   - py-pandas  %gcc@6.5.0
-  - llvm@8.0.0 %gcc@6.5.0
+  - llvm@8.0.0+all_targets~libcxx %gcc@6.5.0
   - openmpi    %gcc@7.4.0 +cuda
-  - $pumiSim
+  - $pumiSim14
+  - $pumiSim15
   - matrix:
-    - [mpich, $pumi, $petscSpecs, adios+fortran, gsl, fftw]
+    - [mpich, $pumi, $petscSpecs, adios+fortran, gsl, fftw, adios2]
     - ['%gcc@7.4.0', '%clang@8.0.0']
