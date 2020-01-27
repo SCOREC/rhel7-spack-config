@@ -20,8 +20,7 @@ spack:
     - pumi@develop %gcc@7.4.0 +shared simmodsuite=full ~simmodsuite_version_check
       +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@15.0-200110dev
   - pumiSim14:
-    - pumi@develop %gcc@7.4.0 +shared simmodsuite=full
-      +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@14.0-191122
+    - pumi@develop %gcc@7.4.0 +shared simmodsuite=full +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@14.0-191122
   specs:
   - gcc@7.4.0  %gcc@6.5.0
   - vim        %gcc@6.5.0
@@ -35,8 +34,7 @@ spack:
   - py-pandas  %gcc@6.5.0
   - llvm@8.0.0+all_targets~libcxx %gcc@6.5.0
   - openmpi    %gcc@7.4.0 +cuda
-  - $pumiSim14
   - $pumiSim15
   - matrix:
     - [mpich, $pumi, $petscSpecs, adios+fortran, gsl, fftw, adios2]
-    - ['%gcc@7.4.0', '%clang@8.0.0']
+    - ['%gcc@7.4.0']

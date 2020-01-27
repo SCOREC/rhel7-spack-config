@@ -1,13 +1,13 @@
 packages:
   all:
-    compiler: [gcc@7.4.0,clang@9.0.0,gcc@6.5,gcc@rhel7_4.8.5]
+    compiler: [gcc@7.4.0,clang@8.0.0,gcc@6.5,gcc@rhel7_4.8.5]
     providers:
       mpi: [mpich]
       perl: [perl@5.30]
     target: [x86_64]
   gcc:
     paths:
-      gcc@6.5: /opt/scorec/spack/spackDev/opt/spack/linux-rhel7-x86_64/gcc-rhel7_4.8.5/gcc-6.5.0-qhhbstqlz43nhus4ojmy5bwkrw5cjbzk
+      gcc@6.5: /opt/scorec/spack/v0132/install/linux-rhel7-x86_64/gcc-rhel7_4.8.5/gcc-6.5.0-qhhbstqlz43nhus4ojmy5bwkrw5cjbzk
       buildable: False
   xz:
     paths:

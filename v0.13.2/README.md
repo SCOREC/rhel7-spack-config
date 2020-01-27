@@ -32,10 +32,10 @@ git checkout v0.13.2
 # add the simmetrix-simmodsuite package from the develop branch
 git cherry-pick 5ddf5e2
 # create the environment
-spack env create v0.13.2
-spack env activate v0.13.2
+spack env create v0132
+spack env activate v0132
 # copy the yaml files into the dev
-cp /path/to/the/dir/with/the/yaml/files/* var/spack/environments/v0.13.2/.
+cp /path/to/the/dir/with/the/yaml/files/* var/spack/environments/v0132/.
 # copy the compiler yaml file into the spack etc dir
 cp /path/to/the/dir/with/the/yaml/files/compilers.yaml etc/spack/.
 # comment out the gcc 6.5.0, 7.4.0 and llvm sections of compilers.yaml 
@@ -47,9 +47,9 @@ Simmetrix SimModSuite tarballs and zip files into the `spack_v0.13.2` directory.
 
 ## install GCC 6.5.0
 
-The base GCC 4.8.5 compiler provided with RedHat7 cannot compile LLVM 9.0.0. GCC
+The base GCC 4.8.5 compiler provided with RedHat7 cannot compile LLVM 8.0.0. GCC
 6.5.0 can so we will install it as the base compiler from which GCC 7.4.0 and
-LLVM 9.0.0 will be installed.
+LLVM 8.0.0 will be installed.
 
 ```
 spack install gcc@6.5.0
@@ -62,7 +62,7 @@ spack install gcc@6.5.0
 are using compiler flags to maintain portability of the binaries between
 multiple generations of AMD and Intel CPUs, we need to break installation of the
 listed packages into two steps.  In the first step we will install the GCC 7.4.0
-and LLVM 9.0.0 compilers and some core packages (cmake, vim, tmux, etc.) using
+and LLVM 8.0.0 compilers and some core packages (cmake, vim, tmux, etc.) using
 GCC 6.5.0.  In the second step we add the new compilers to `compilers.yaml` with
 the portability flags.
 
@@ -77,14 +77,11 @@ spack install # wait a few hours
 ## sanity check
 
 If all goes well then in a new terminal the following commands should provide
-access to the two stacks of modules; gcc7.4.0 w/ mpich and llvm9.0.0 w/ mpich.
+access to the gcc7.4.0 w/ mpich stack of modules.
 
 ```
-module use /opt/scorec/spack/v0.13.2/lmod/linux-rhel7-x86_64/Core
+module use /opt/scorec/spack/v0132/lmod/linux-rhel7-x86_64/Core
 module load gcc mpich
-module av
-module purge
-module load llvm mpich
 module av
 ```
 
