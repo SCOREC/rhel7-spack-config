@@ -41,19 +41,3 @@ compilers:
       cflags: -mtune=native -march=core2
       cxxflags: -mtune=native -march=core2
       fflags: -mtune=native -march=core2
-- compiler:
-    spec: clang@8.0.0
-    paths:
-      cc: /opt/scorec/spack/v0132/install/linux-rhel7-x86_64/gcc-6.5.0/llvm-8.0.0-2qiglfiucliiphyiq7awwdby6atupmqw/bin/clang
-      cxx: /opt/scorec/spack/v0132/install/linux-rhel7-x86_64/gcc-6.5.0/llvm-8.0.0-2qiglfiucliiphyiq7awwdby6atupmqw/bin/clang++
-      f77: /opt/scorec/spack/v0132/install/linux-rhel7-x86_64/gcc-6.5.0/gcc-7.4.0-c5aaloybb5jqiolgakbf5sxir4axkly4/bin/gfortran
-      fc: /opt/scorec/spack/v0132/install/linux-rhel7-x86_64/gcc-6.5.0/gcc-7.4.0-c5aaloybb5jqiolgakbf5sxir4axkly4/bin/gfortran
-    operating_system: rhel7
-    target: x86_64
-    modules: []
-    environment: {}
-    extra_rpaths: []
-    flags:
-      cflags: -mtune=native -march=core2
-      cxxflags: -mtune=native -march=core2
-      fflags: -mtune=native -march=core2
