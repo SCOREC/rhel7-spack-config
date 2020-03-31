@@ -25,6 +25,7 @@ spack:
   - gcc@7.4.0  %gcc@6.5.0
   - vim        %gcc@6.5.0
   - emacs      %gcc@6.5.0
+  - graphviz   %gcc@6.5.0 +pangocairo +libgd
   - git        %gcc@6.5.0 ^pcre+jit
   - tmux       %gcc@6.5.0
   - gdb        %gcc@6.5.0
