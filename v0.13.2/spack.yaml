@@ -18,7 +18,7 @@ spack:
     - pumi@develop +zoltan ^zoltan+parmetis
   - pumiSim15:
     - pumi@develop %gcc@7.4.0 +shared simmodsuite=full ~simmodsuite_version_check
-      +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@15.0-200110dev
+      +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@15.0-200330dev
   - pumiSim14:
     - pumi@develop %gcc@7.4.0 +shared simmodsuite=full +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@14.0-191122
   specs:
