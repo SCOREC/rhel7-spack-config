@@ -37,5 +37,5 @@ spack:
   - openmpi    %gcc@7.4.0 +cuda
   - $pumiSim15
   - matrix:
-    - [mpich, $pumi, $petscSpecs, adios+fortran, gsl, fftw, adios2]
+    - [mpich, $pumi, $petscSpecs, adios+fortran, gsl, fftw, adios2,netcdf+parallel-netcdf]
     - ['%gcc@7.4.0']
