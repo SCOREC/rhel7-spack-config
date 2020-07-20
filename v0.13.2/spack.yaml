@@ -16,6 +16,9 @@ spack:
     - petsc +complex +mumps +int64
   - pumi:
     - pumi@develop +zoltan ^zoltan+parmetis
+  - pumiSim15-200714:
+    - pumi@develop %gcc@7.4.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@15.0-200714
   - pumiSim15:
     - pumi@develop %gcc@7.4.0 +shared simmodsuite=full ~simmodsuite_version_check
       +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@15.0-200330dev
@@ -36,6 +39,7 @@ spack:
   - llvm@8.0.0+all_targets~libcxx %gcc@6.5.0
   - openmpi    %gcc@7.4.0 +cuda
   - $pumiSim15
+  - $pumiSim15-200714
   - matrix:
     - [mpich, $pumi, $petscSpecs, adios+fortran, gsl, fftw, adios2,netcdf+parallel-netcdf]
     - ['%gcc@7.4.0']

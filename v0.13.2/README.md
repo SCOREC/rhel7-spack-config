@@ -86,3 +86,66 @@ module av
 ```
 
 Fin.
+
+## install new simmodsuite
+
+Starting from scratch in the v0132 environment:
+
+```
+source /opt/scorec/spack/rhel7-spack-config/setupSpack.sh
+spack env activate v0132
+```
+
+download and create checksum
+
+```
+cd /opt/scorec/spack/spackDev/simmetrix
+mkdir <version-string>
+cd !$
+/opt/scorec/spack/rhel7-spack-config/downloadSimModSuite.sh <user> <pass> <version-string> 64 <dev=on|off>
+/opt/scorec/spack/rhel7-spack-config/getSimModSuiteChecksums.py <version-string> ./
+```
+
+add the new version and checksums to the package file for simmodsuite
+
+```
+spack edit simmetrix-simmodsuite
+#paste block for new version
+```
+
+add the following block to 
+
+```
+/opt/scorec/spack/spackDev/var/spack/environments/v0132/spack.yaml
+```
+
+under the `definitions` section 
+
+```
+  - pumiSim15-200714:
+    - pumi@develop %gcc@7.4.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@15.0-200714
+```
+
+and the following line under specs:
+
+```
+ - $pumiSim15-200714 
+```
+
+to create a new pumi install using the new simmodsuite.
+
+Install:
+
+```
+spack concretize -f  
+#check the output of concretize to ensure only pumi and simmodsuite are installed
+spack install
+```
+
+Update docs
+
+```
+/opt/scorec/spack/rhel7-spack-config/fixSimmodsuiteDocs.sh /path/to/latest/simmodsuite/install
+/opt/scorec/spack/rhel7-spack-config/updateSimmodsuiteDocs.sh /path/to/latest/simmodsuite/install <version-string> <make_latest=0|1>
+```
