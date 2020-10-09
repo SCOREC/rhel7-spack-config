@@ -36,10 +36,11 @@ spack:
   - valgrind   %gcc@6.5.0 -mpi
   - octave     %gcc@6.5.0
   - py-pandas  %gcc@6.5.0
+  - py-matplotlib %gcc@6.5.0
   - llvm@8.0.0+all_targets~libcxx %gcc@6.5.0
   - openmpi    %gcc@7.4.0 +cuda
   - $pumiSim15
   - $pumiSim15-200714
   - matrix:
-    - [mpich, $pumi, $petscSpecs, adios+fortran, gsl, fftw, adios2,netcdf+parallel-netcdf]
+    - [mpich, $pumi, $petscSpecs, adios+fortran, gsl, fftw, adios2,netcdf+parallel-netcdf, magma]
     - ['%gcc@7.4.0']

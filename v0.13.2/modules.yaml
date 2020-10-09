@@ -116,3 +116,7 @@ modules:
       autoload: 'all'
     py-matplotlib:
       autoload: 'all'
+    py-setuptools:
+      autoload: 'all'
+    magma:
+      autoload: 'all'
