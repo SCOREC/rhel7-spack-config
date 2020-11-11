@@ -1,0 +1,43 @@
+packages:
+  all:
+    compiler: [gcc@10.1.0,gcc@6.5.0]
+    providers:
+      mpi: [mpich]
+    target: [x86_64]
+  gcc:
+    paths:
+      gcc@6.5.0: /opt/scorec/spack/v0154/install/linux-rhel7-x86_64/gcc-rhel7_4.8.5/gcc-6.5.0-s2zr2kbo4sjcif55bqx4bj3pjwhupch4/
+      gcc@10.1.0: /opt/scorec/spack/v0154/install/linux-rhel7-x86_64/gcc-6.5.0/gcc-10.1.0-6aux4ghzryg2mkoaacx7lzj7yye65sux/
+    buildable: False
+  xz:
+    paths:
+      xz@system: /usr
+    buildable: False
+  tar:
+    paths:
+      tar@system: /usr
+    buildable: False
+  flex:
+    paths:
+      flex@system: /usr
+    buildable: False
+  lua:
+    paths:
+      lua@5.1.4: /usr
+    buildable: False
+  libx11:
+    paths:
+      libx11@system: /usr
+    buildable: False
+  pango:
+    paths:
+      pango@1.0: /usr
+    buildable: False
+  bzip2:
+    paths:
+      bzip2@system: /usr
+    buildable: False
+  cuda:
+    paths:
+      cuda@10.1: /usr/local/cuda-10.1/
+    buildable: False

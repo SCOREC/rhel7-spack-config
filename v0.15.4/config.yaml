@@ -1,0 +1,9 @@
+config:
+  target: x86_64
+  install_tree: /opt/scorec/spack/v0154/install
+  install_missing_compilers: true
+  module_roots:
+    lmod:   /opt/scorec/spack/v0154/lmod
+  misc_cache: $spack/misc_cache
+  build_stage:
+    - /space/cwsmith/spack/v0154/build_stage
