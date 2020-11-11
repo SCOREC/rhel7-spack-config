@@ -116,5 +116,7 @@ modules:
       autoload: 'all'
     py-matplotlib:
       autoload: 'all'
+    py-scipy:
+      autoload: 'all'
     magma:
       autoload: 'all'
