@@ -13,7 +13,7 @@ spack:
       +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@15.0-201024
   - pumiSim16:
     - pumi@master %gcc@10.1.0 +shared simmodsuite=full ~simmodsuite_version_check
-      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@16.0-201021
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@16.0-201021dev
   specs:
   - gcc@6.5.0
   - gcc@10.1.0 %gcc@6.5.0
