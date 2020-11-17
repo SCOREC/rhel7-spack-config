@@ -15,8 +15,10 @@ spack:
     - pumi@master %gcc@10.1.0 +shared simmodsuite=full ~simmodsuite_version_check
       +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@16.0-201021dev
   specs:
-  - gcc@6.5.0
-  - gcc@10.1.0 %gcc@6.5.0
+  
+  #- gcc@6.5.0
+  #- gcc@10.1.0
+  #- mpich      %gcc@10.1.0
   - vim        %gcc@6.5.0
   - emacs      %gcc@6.5.0
   - graphviz   %gcc@6.5.0 +libgd
@@ -32,6 +34,4 @@ spack:
   - openmpi    %gcc@10.1.0 +cuda
   - $pumiSim15
   - $pumiSim16
-  - matrix:
-    - [mpich, $pumi]
-    - ['%gcc@10.1.0']
+  - $pumi

@@ -14,27 +14,19 @@
 #   ~/.spack/modules.yaml
 # -------------------------------------------------------------------------
 modules:
-  enable:
+  enable::
     - lmod
   lmod:
     core_compilers:
-      - gcc@6.5.0
+      - 'gcc@6.5.0'
     hierarchy:
       - mpi
     whitelist:
       - gcc
-      - clang
-      - vim
-      - emacs
-      - git
-      - cmake
-      - tmux
-      - llvm
-      - gdb
-      - valgrind
-    blacklist:
-      - '%gcc@rhel7_4.8.5'
-      - perl@5.16.3
+    hash_length: 0
+    projections:
+      all: '{name}/{version}'
+      ^simmetrix-simmodsuite: '{name}/{version}-simmodsuite-{^simmetrix-simmodsuite.version}'
     all:
       environment:
         set:
@@ -48,7 +40,6 @@ modules:
         '^metis+int64': int64
         '^metis~int64': int32
         '+shared': shared
-        'simmodsuite=full': sim
       autoload: 'all'
     metis:
       suffixes:

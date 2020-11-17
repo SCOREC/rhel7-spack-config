@@ -73,6 +73,23 @@ spack compiler find --scope site </path/to/install>
 spack config --scope site site edit compilers
 ```
 
+## install GCC 10.1.0
+
+```
+spack install gcc@10.1.0
+# add the compiler using the install path at the end of the output
+spack compiler find --scope site </path/to/install>
+# edit the compilers.yaml file and add portability flags
+#
+#  flags:
+#    cflags: -mtune=native -march=core2
+#    cxxflags: -mtune=native -march=core2
+#    fflags: -mtune=native -march=core2
+#
+spack config --scope site site edit compilers
+```
+
+
 ## install compilers and packages
 
 `spack.yaml` contains all the packages that will eventually be installed.  Given that we
@@ -96,10 +113,10 @@ spack install
 ## sanity check
 
 If all goes well then in a new terminal the following commands should provide
-access to the gcc7.4.0 w/ mpich stack of modules.
+access to the gcc10.1.0 w/ mpich stack of modules.
 
 ```
-module use /opt/scorec/spack/v0154/lmod/linux-rhel7-x86_64/Core
+module use /opt/scorec/spack/v0154/lmod2/linux-rhel7-x86_64/Core
 module load gcc mpich
 module av
 ```
