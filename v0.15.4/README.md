@@ -9,19 +9,13 @@ This environment is locked to Spack version v0.15.4
 
 ## contents
 
-compilers.yaml - compiler locations and flags
-
-config.yaml - spack install directories and options
-
 modules.yaml - module name and hierarchy
-
-packages.yaml - pre-installed packages, architecture target
 
 README.md - this file
 
 setupSpack.sh - setup the env for using spack
 
-spack.yaml - list of packages to install
+spack.yaml - list of packages to install, config, and existing packages
 
 ## setup
 
@@ -30,12 +24,10 @@ git clone git@github.com:spack/spack.git spack_v0.15.4
 cd !$
 git checkout v0.15.4
 # create the environment
-spack env create v0154
-spack env activate v0154
-# copy the yaml files into the dev
-cp /path/to/the/dir/with/the/yaml/files/* var/spack/environments/v0154/.
-# copy the compiler yaml file into the spack etc dir
-cp /path/to/the/dir/with/the/yaml/files/compilers.yaml etc/spack/.
+spack env create v0154_2
+spack env activate v0154_2
+# copy the yaml files into the environment
+cp /path/to/the/dir/with/the/yaml/files/* var/spack/environments/v0154_2/.
 ```
 
 Create a sub-directory named `XX.Y-YYMMDD` and download the corresponding
@@ -53,61 +45,13 @@ cd -
 spack edit simmetrix-simmodsuite
 ```
 
-## install GCC 6.5.0
-
-The base GCC 4.8.5 compiler provided with RedHat7 cannot compile LLVM 8.0.0. GCC
-6.5.0 can so we will install it as the base compiler from which GCC 7.4.0 and
-LLVM 8.0.0 will be installed.
-
-```
-spack install gcc@6.5.0
-# add the compiler using the install path at the end of the output
-spack compiler find --scope site </path/to/install>
-# edit the compilers.yaml file and add portability flags
-#
-#  flags:
-#    cflags: -mtune=native -march=core2
-#    cxxflags: -mtune=native -march=core2
-#    fflags: -mtune=native -march=core2
-#
-spack config --scope site site edit compilers
-```
-
-## install GCC 10.1.0
-
-```
-spack install gcc@10.1.0
-# add the compiler using the install path at the end of the output
-spack compiler find --scope site </path/to/install>
-# edit the compilers.yaml file and add portability flags
-#
-#  flags:
-#    cflags: -mtune=native -march=core2
-#    cxxflags: -mtune=native -march=core2
-#    fflags: -mtune=native -march=core2
-#
-spack config --scope site site edit compilers
-```
-
-
 ## install compilers and packages
 
-`spack.yaml` contains all the packages that will eventually be installed.  Given that we
-are using compiler flags to maintain portability of the binaries between
-multiple generations of AMD and Intel CPUs, we need to break installation of the
-listed packages into two steps.  In the first step we will install the GCC 7.4.0
-and LLVM 8.0.0 compilers and some core packages (cmake, vim, tmux, etc.) using
-GCC 6.5.0.  In the second step we add the new compilers to `compilers.yaml` with
-the portability flags.
+`spack.yaml` contains all the packages that will eventually be installed.
 
-``` 
-# comment out the last five lines of spack.  yaml # (starting with the line '- openmpi %gcc@7.  4.0 + cuda')
-spack install # wait a few hours
-# uncomment the last five lines in spack.
-yaml
-spack install # wait a few hours
+```
 spack concretize -f
-spack install
+spack install # wait a few hours
 ```
 
 ## sanity check
@@ -116,7 +60,7 @@ If all goes well then in a new terminal the following commands should provide
 access to the gcc10.1.0 w/ mpich stack of modules.
 
 ```
-module use /opt/scorec/spack/v0154/lmod2/linux-rhel7-x86_64/Core
+module use /opt/scorec/spack/v0154_2/lmod/linux-rhel7-x86_64/Core
 module load gcc mpich
 module av
 ```
@@ -125,11 +69,11 @@ Fin.
 
 ## install new simmodsuite
 
-Starting from scratch in the v0154 environment:
+Starting from scratch in the v0154_2 environment:
 
 ```
 source /opt/scorec/spack/rhel7-spack-config/setupSpack.sh
-spack env activate v0154
+spack env activate v0154_2
 ```
 
 download and create checksum
@@ -152,13 +96,13 @@ spack edit simmetrix-simmodsuite
 add the following block to 
 
 ```
-/opt/scorec/spack/spackDev/var/spack/environments/v0154/spack.yaml
+/opt/scorec/spack/spackDev/var/spack/environments/v0154_2_2_2_2_2/spack.yaml
 ```
 
 under the `definitions` section 
 
 ```
-  - pumiSim15-200714:
+  - pumiSim##:
     - pumi@develop %gcc@7.4.0 +shared simmodsuite=full ~simmodsuite_version_check
       +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@15.0-200714
 ```
@@ -166,10 +110,10 @@ under the `definitions` section
 and the following line under specs:
 
 ```
- - $pumiSim15-200714 
+ - $pumiSim##
 ```
 
-to create a new pumi install using the new simmodsuite.
+, where `##` is the major version number, to create a new pumi install using the new simmodsuite.
 
 Install:
 
