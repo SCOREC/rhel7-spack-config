@@ -18,7 +18,7 @@ modules:
     - lmod
   lmod:
     core_compilers:
-      - 'gcc@6.5.0'
+      - gcc@6.5.0
     hierarchy:
       - mpi
     whitelist:

@@ -3,7 +3,8 @@
 The yaml files in this directory are for installing stacks of common packages
 built with GCC and LLVM compilers on the SCOREC RedHat7 workstations.  The
 packages are compiled with flags that support optimized execution on the various
-generations of Intel and AMD CPUs.
+generations of Intel and AMD CPUs.  Note, some older generations of CPUs are
+not supported
 
 This environment is locked to Spack version v0.15.4
 
@@ -30,6 +31,9 @@ spack env activate v0154_2
 cp /path/to/the/dir/with/the/yaml/files/* var/spack/environments/v0154_2/.
 ```
 
+Comment out the gcc 6.5.0 and 10.1.0 sections of compilers.yaml 
+as they have not yet been installed; I'm not sure if this is completely necessary.
+
 Create a sub-directory named `XX.Y-YYMMDD` and download the corresponding
 Simmetrix SimModSuite tarballs and zip files into the `spack_v0.15.4` directory.
 
@@ -45,12 +49,38 @@ cd -
 spack edit simmetrix-simmodsuite
 ```
 
-## install compilers and packages
+## install GCC 6.5.0
 
-`spack.yaml` contains all the packages that will eventually be installed.
+GCC 6.5.0 can so we will install it as the base compiler from which GCC 10.1.0
+will be installed.  This is the 'core' compiler in the lua module heirarchy that
+spack creates.
 
 ```
-spack concretize -f
+spack install gcc@6.5.0
+```
+
+Now that gcc 6.5 is installed, uncomment and edit the gcc 6.5.0 section in
+compilers.yaml.
+
+## install compilers and packages
+
+In the first step we will install the GCC 10.1.0
+and some core packages (cmake, vim, tmux, etc.) using
+GCC 6.5.0.
+
+Comment out the last four lines  
+(starting with the line '- mpich %gcc@10.1.0')
+of the `specs:` section of `spack.yaml`.
+
+```
+spack install # wait a few hours
+```
+
+Uncomment the last four lines in `spack.yaml` to
+install the remaining packages depending on gcc 10.1.0.
+
+```
+cd /directory/with/simmodsuite/tarballs
 spack install # wait a few hours
 ```
 
@@ -72,7 +102,7 @@ Fin.
 Starting from scratch in the v0154_2 environment:
 
 ```
-source /opt/scorec/spack/rhel7-spack-config/setupSpack.sh
+source /opt/scorec/spack/spack0.15.4/setupSpack.sh
 spack env activate v0154_2
 ```
 
