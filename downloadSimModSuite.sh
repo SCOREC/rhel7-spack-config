@@ -30,6 +30,9 @@ if [ "$dev" != "yes" ] && [ "$dev" != "no" ]; then
   exit 1
 fi
 
+mkdir ${release}
+cd $_
+
 # in vi add newlines
 # %s/<\/a>/<\/a>\r/g
 # to source.php( source code of support download site ) then run the command 
