@@ -23,6 +23,8 @@ modules:
       - mpi
     whitelist:
       - gcc
+    blacklist:
+      - mpc
     hash_length: 0
     projections:
       all: '{name}/{version}'
