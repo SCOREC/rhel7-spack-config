@@ -109,7 +109,7 @@ spack env activate v0154_2
 download and create checksum
 
 ```
-cd /opt/scorec/spack/spackDev/simmetrix
+cd /opt/scorec/spack/simmetrix
 mkdir <version-string>
 cd !$
 /opt/scorec/spack/rhel7-spack-config/downloadSimModSuite.sh <user> <pass> <version-string> 64 <dev=on|off>
@@ -126,7 +126,7 @@ spack edit simmetrix-simmodsuite
 add the following block to 
 
 ```
-/opt/scorec/spack/spackDev/var/spack/environments/v0154_2_2_2_2_2/spack.yaml
+$SPACK_ROOT/var/spack/environments/v0154_2/spack.yaml
 ```
 
 under the `definitions` section 
@@ -156,6 +156,33 @@ spack install
 Update docs
 
 ```
-/opt/scorec/spack/rhel7-spack-config/fixSimmodsuiteDocs.sh /path/to/latest/simmodsuite/install
+/opt/scorec/spack/rhel7-spack-config/fixSimmodsuiteDocs.sh /path/to/latest/simmodsuite/install/html
 /opt/scorec/spack/rhel7-spack-config/updateSimmodsuiteDocs.sh /path/to/latest/simmodsuite/install <version-string> <make_latest=0|1>
 ```
+
+## Troubleshooting
+
+### printing from a package file
+
+Python print statements `print('aksjdlkjd')` added to a package file will appear when running `spack -d install -v`.
+
+### build-stage problems
+
+If the spack install fails to copy SimModSuite files from the build-stage to the spack `prefix`
+directory check that the build-stage is not corrupted somehow.
+
+For example, the build-stage was corrupted after a `spack install` was run with a bad version
+string for the newly added Simmetrix SimModSuite version.  Manually deleting
+the problematic build-stage (`spack clean -a` was not sufficient) resolved the
+issue.  Specifically, running `spack -d install -v` produced the following
+error:
+
+```
+==> [2022-01-26-14:08:49.860826] MeshSimAdvanced: Executing phase: 'install'
+==> [2022-01-26-14:08:52.081648] Error: FileNotFoundError: [Errno 2] No such file or directory: '/space/cwsmith/spack/v0154_2/build_stage/spack-stage-simmetrix-simmodsuite-17.0-220124dev-fgm5s4i7icj324t46tqgb6b2djgo6zog/spack-src/pskrnl/17.0-220124dev/'
+```
+
+and manually removing the 
+`/space/cwsmith/spack/v0154_2/build_stage/resource-pskrnl-fgm5s4i7icj324t46tqgb6b2djgo6zog`
+directory after setting write permissions on the `schema` sub-directories fixed
+the problem.
