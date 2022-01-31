@@ -182,7 +182,7 @@ error:
 ==> [2022-01-26-14:08:52.081648] Error: FileNotFoundError: [Errno 2] No such file or directory: '/space/cwsmith/spack/v0154_2/build_stage/spack-stage-simmetrix-simmodsuite-17.0-220124dev-fgm5s4i7icj324t46tqgb6b2djgo6zog/spack-src/pskrnl/17.0-220124dev/'
 ```
 
-and manually removing the 
+and manually removing the
 `/space/cwsmith/spack/v0154_2/build_stage/resource-pskrnl-fgm5s4i7icj324t46tqgb6b2djgo6zog`
 directory after setting write permissions on the `schema` sub-directories fixed
 the problem.
