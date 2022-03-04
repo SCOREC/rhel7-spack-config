@@ -53,6 +53,8 @@ modules:
         '+int64': int64
         '~int64': int32
       autoload: 'all'
+    fftw:
+      autoload: 'all'
     parmetis:
       suffixes:
         '^metis+int64': int64
