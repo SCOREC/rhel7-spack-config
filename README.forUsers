@@ -1,0 +1,49 @@
+Available Software Installs on SCOREC RHEL7 Systems
+
+Run the commands listed under each section to load the listed modules.
+Additional modules that are available can be listed with `module av` or `module
+av <name of package>`.  Alternatively, `module spider <name of package>` can
+provide additional info on available packages.
+
+==GCC 7.3.0 with MPICH==
+
+The following module path is currently (as of March 21, 2022) the default.
+
+```
+module use /opt/scorec/spack/lmod/linux-rhel7-x86_64/Core
+module load gcc/7.3.0-bt47fwr mpich/3.3-diz4f6i
+```
+
+==LLVM 7.0.0==
+
+The following module path is currently (as of March 21, 2022) the default.
+
+```
+module use /opt/scorec/spack/lmod/linux-rhel7-x86_64/Core
+module load llvm
+```
+
+==GCC 7.4.0 with MPICH==
+
+```
+module unuse /opt/scorec/spack/lmod/linux-rhel7-x86_64/Core 
+module use /opt/scorec/spack/v0154_2/lmod/linux-rhel7-x86_64/Core 
+module load gcc/7.4.0 mpich/3.3.2
+```
+
+==GCC 10.1.0 with MPICH==
+
+```
+module unuse /opt/scorec/spack/lmod/linux-rhel7-x86_64/Core 
+module use /opt/scorec/spack/v0154_2/lmod/linux-rhel7-x86_64/Core 
+module load gcc/10.1.0 mpich 
+```
+
+==LLVM 10.0.0==
+
+```
+module unuse /opt/scorec/spack/lmod/linux-rhel7-x86_64/Core 
+module use /opt/scorec/spack/v0154_2/lmod/linux-rhel7-x86_64/Core 
+module load llvm cmake/3.20.0  
+```
+
