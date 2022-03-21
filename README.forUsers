@@ -1,9 +1,12 @@
 Available Software Installs on SCOREC RHEL7 Systems
 
 Run the commands listed under each section to load the listed modules.
-Additional modules that are available can be listed with `module av` or `module
-av <name of package>`.  Alternatively, `module spider <name of package>` can
-provide additional info on available packages.
+The modules are hierarchical based on the compiler and mpi implementation.
+For example, the module for a package `foo` that depends on a `gcc` and `mpich`
+will not be listed under `module av` (or `module av foo`) until `gcc` and
+`mpich` packages are loaded.
+Another mechanism to search for available packages is `module spider` or
+`module spider <name of package>`.
 
 ==GCC 7.3.0 with MPICH==
 
