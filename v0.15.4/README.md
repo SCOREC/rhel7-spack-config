@@ -103,16 +103,13 @@ Starting from scratch in the v0154_2 environment:
 
 ```
 source /opt/scorec/spack/spack0.15.4/setupSpack.sh
-spack env activate v0154_2
 ```
 
 download and create checksum
 
 ```
 cd /opt/scorec/spack/simmetrix
-mkdir <version-string>
-cd !$
-/opt/scorec/spack/rhel7-spack-config/downloadSimModSuite.sh <user> <pass> <version-string> 64 <dev=on|off>
+/opt/scorec/spack/rhel7-spack-config/downloadSimModSuite.sh <user> <pass> <version-string> 64 <dev=yes|no>
 /opt/scorec/spack/rhel7-spack-config/getSimModSuiteChecksums.py <version-string> ./
 ```
 
@@ -123,12 +120,14 @@ spack edit simmetrix-simmodsuite
 #paste block for new version
 ```
 
+Run the following command to open the spack config yaml file for this
+environment:
+
+```
+spack config edit
+```
+
 add the following block to 
-
-```
-$SPACK_ROOT/var/spack/environments/v0154_2/spack.yaml
-```
-
 under the `definitions` section 
 
 ```
@@ -156,6 +155,8 @@ spack install
 Update docs
 
 ```
+spack find -l simmetrix-simmodsuite #find the hash for the new install
+spack location -i /<hash> #get the path to the install
 /opt/scorec/spack/rhel7-spack-config/fixSimmodsuiteDocs.sh /path/to/latest/simmodsuite/install/html
 /opt/scorec/spack/rhel7-spack-config/updateSimmodsuiteDocs.sh /path/to/latest/simmodsuite/install <version-string> <make_latest=0|1>
 ```
