@@ -167,6 +167,36 @@ spack location -i /<hash> #get the path to the install
 
 Python print statements `print('aksjdlkjd')` added to a package file will appear when running `spack -d install -v`.
 
+### permission error
+
+During the simmetrix simmodsuite install the following error was appearing:
+
+```
+363 ==> [2022-08-12-16:12:11.860125] Error: Failed to install MeshSimAdvanced
+due to PermissionError: [Errno 1] Operation not permitted:
+'/opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-10.1.0/simmetrix-simmodsuite-18.0-220810dev-ghwwdxua4e6rdtvjtctkx4osmanhhfce'
+364 ==> [2022-08-12-16:12:11.860158] Flagging MeshSimAdvanced as failed: [Errno
+1] Operation not permitted:
+'/opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-10.1.0/simmetrix-simmodsuite-18.0-220810dev-ghwwdxua4e6rdtvjtctkx4osmanhhfce' 
+```
+
+This install was done through the pumi package as a dependency.  Directly
+installing simmodsuite (`spack --debug install simmetrix-simmmodsuite`) gave me
+a usable stack trace to the os.chmod python call that was failing.
+
+For some reason (recent system update?) the os.chmod(...) command was failing
+from spack and disabling the use of the sgidbit via:
+
+```
+spack config add "config:allow_sgid:false"
+```
+
+allowed it to proceed as described here:
+
+https://github.com/spack/spack/issues/28407#issuecomment-1012558772
+
+
+
 ### build-stage problems
 
 If the spack install fails to copy SimModSuite files from the build-stage to the spack `prefix`
