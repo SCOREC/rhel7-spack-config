@@ -163,6 +163,14 @@ spack location -i /<hash> #get the path to the install
 
 ## Troubleshooting
 
+### errors about packages that don't exist
+
+During an attempted install of `pumi` with spack `v0.18.0` errors about package `armpl-gcc` not existing were hit.  It turned out that the `~/.spack` directory was the cause.  Removing the directory fixed the error.
+
+The user home directory config/cache dir can be avoided as described here:
+
+https://spack.readthedocs.io/en/latest/configuration.html?highlight=SPACK_USER_CONFIG_PATH#overriding-local-configuration
+
 ### printing from a package file
 
 Python print statements `print('aksjdlkjd')` added to a package file will appear when running `spack -d install -v`.
