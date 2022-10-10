@@ -110,6 +110,7 @@ download and create checksum
 ```
 cd /opt/scorec/spack/simmetrix
 /opt/scorec/spack/rhel7-spack-config/downloadSimModSuite.sh <user> <pass> <version-string> 64 <dev=yes|no>
+cd <version-string>
 /opt/scorec/spack/rhel7-spack-config/getSimModSuiteChecksums.py <version-string> ./
 ```
 
