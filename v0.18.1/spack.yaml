@@ -65,6 +65,8 @@ spack:
   - nco %gcc@11.2.0
   - netlib-lapack %gcc@11.2.0
   - netcdf-c +parallel-netcdf %gcc@11.2.0
+  - netcdf-fortran %gcc@11.2.0
+  - scorpio %gcc@11.2.0
   - $pumi
   - $pumiSim18.0-220930beta
   compilers:
