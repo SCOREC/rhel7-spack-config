@@ -50,3 +50,26 @@ module use /opt/scorec/spack/v0154_2/lmod/linux-rhel7-x86_64/Core
 module load llvm cmake/3.20.0  
 ```
 
+==GCC 11.2.0 with MPICH 4.0.2==
+
+```
+module unuse /opt/scorec/spack/lmod/linux-rhel7-x86_64/Core 
+module use /opt/scorec/spack/v0181_1/lmod/linux-rhel7-x86_64/Core 
+module load gcc/11.2.0 mpich/4.0.2
+```
+
+==GCC 11.2.0 with OpenMPI 4.1.4==
+
+```
+module unuse /opt/scorec/spack/lmod/linux-rhel7-x86_64/Core 
+module use /opt/scorec/spack/v0181_1/lmod/linux-rhel7-x86_64/Core 
+module load gcc/11.2.0 openmpi/4.1.4
+```
+
+==Clang 15.0.2 with MPICH 4.0.2==
+
+```
+module unuse /opt/scorec/spack/lmod/linux-rhel7-x86_64/Core 
+module use /opt/scorec/spack/v0181_1/lmod/linux-rhel7-x86_64/Core 
+module load llvm mpich/4.0.2
+```
