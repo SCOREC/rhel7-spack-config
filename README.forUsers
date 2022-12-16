@@ -68,6 +68,9 @@ module load gcc/11.2.0 openmpi/4.1.4
 
 ==Clang 15.0.2 with MPICH 4.0.2==
 
+Note, FORTRAN users will have to use gfortran from GCC 7.4.... which has not
+been tested.
+
 ```
 module unuse /opt/scorec/spack/lmod/linux-rhel7-x86_64/Core 
 module use /opt/scorec/spack/v0181_1/lmod/linux-rhel7-x86_64/Core 
