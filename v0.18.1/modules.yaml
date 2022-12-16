@@ -124,6 +124,8 @@ modules:
         suffixes:
           +parallel-netcdf: parallel
         autoload: all
+      esmf:
+        autoload: all
       include:
       - gcc
       exclude:
