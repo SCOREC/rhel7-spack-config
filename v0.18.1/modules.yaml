@@ -126,6 +126,8 @@ modules:
         autoload: all
       esmf:
         autoload: all
+      subversion:
+        autoload: all
       include:
       - gcc
       exclude:
