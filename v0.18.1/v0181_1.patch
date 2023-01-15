@@ -1,0 +1,242 @@
+From 4868161fa0747bab1964fbcb92e234efd9ab95bc Mon Sep 17 00:00:00 2001
+From: Cameron Smith <smithc11@rpi.edu>
+Date: Wed, 19 Oct 2022 15:50:49 -0400
+Subject: [PATCH 1/4] simmetrix: add 18.0-220930beta
+
+---
+ .../packages/simmetrix-simmodsuite/package.py      | 38 ++++++++++++++++++++--
+ 1 file changed, 36 insertions(+), 2 deletions(-)
+
+diff --git a/var/spack/repos/builtin/packages/simmetrix-simmodsuite/package.py b/var/spack/repos/builtin/packages/simmetrix-simmodsuite/package.py
+index 7aa9684..d8f2757 100644
+--- a/var/spack/repos/builtin/packages/simmetrix-simmodsuite/package.py
++++ b/var/spack/repos/builtin/packages/simmetrix-simmodsuite/package.py
+@@ -1,4 +1,4 @@
+-# Copyright 2013-2022 Lawrence Livermore National Security, LLC and other
++# Copyright 2013-2020 Lawrence Livermore National Security, LLC and other
+ # Spack Project Developers. See the top-level COPYRIGHT file for details.
+ #
+ # SPDX-License-Identifier: (Apache-2.0 OR MIT)
+@@ -6,9 +6,43 @@
+ import os
+ 
+ from spack.package import *
+-
+ RELEASES = [
+     {
++    'version': '18.0-220930beta',
++    'components': {
++        'discrete': ['8d0f15475967e19d0c8d3e07316a9105c18a1cd509b7a86503848ca95372df8c', 'discrete'],
++        'gmadv': ['9fb61eebce87020b6cb4934f2c2b42a5c161421062498017053ee84d85c358d4', 'advmodel'],
++        'aciskrnl': ['bdc3cc870f716172c8a41bd6fb30b07e66666628b379273a4d722fe93bd87570', 'acis'],
++        'msparallelmesh': ['fcad8decb1af2c0c8d8a2503df31589ff83bf7b659ec28fc650312dd7374cf91', 'parallelmesh'],
++        'msparalleladapt': ['5a0339defd41358f041a2a899563c7394dedd13f3a435fa0083f357e2d159ba3', 'paralleladapt'],
++        'gmcore': ['4ba94be5da5a49e74fce5616cd86389eb5be7205add754837be1920824f11113', 'base'],
++        'pskrnl': ['c958315c2ad2c0dd90655ab6a55a7790e0f638eca02c70922f27d73f2a128c31', 'parasolid'],
++        'gmvoxel': ['6e1e0d333ca4b4c05aa0ee7837b0a6772e5dc4f451625ba769153c624dfcca0e', 'voxel'],
++        'msadapt': ['8ee2a942528d8338242e14b9425c89613fdab38bf3b2a8966bc548038ea7bb81', 'base'],
++        'gmabstract': ['6280d0bf496177b5c08a95473241329e0e3637fefa595ff68d053f36c6f4b7ef', 'abstract'],
++        'mscore': ['e09bfbb8f8d5c5e2248a72207ab79d90de24d05fd9d093bc458848e5327c4dd6', 'base'],
++        'msadv': ['a2aa0b3fea780015eaffc42f72b0daa234dfdf3de9cc5abb661450e24d235754', 'adv'],
++        'fdcore': ['0ddd7feb91f3fabe6a6da438616d520b51395a8e8b9e1cf6073e11a3644b89b4', 'base'],
++        'psint': ['8d460d12b48d3b2432267fa4182b832b567e252d6e42a937243404fac970ae9f', 'parasolid'],
++        },
++    'docs': {
++        'GeomSim': ['3a00c6a0e37254c8c4e4d94c2ab0eab695a35858a9165c433baf755d265d5af5', 'base'],
++        'MeshSimAdapt': ['70bf8c7b6451f9ff0eada8845072250bfdff66c1e6941698c68aa8090fe343b6', 'base'],
++        'GeomSimAcis': ['fe6f931581fa1d7489fec7265fbaf7ecb0798836584c7add441cbdb705a69b74', 'acis'],
++        'GeomSimAdvanced': ['d504ebb92baf0abb7c0d11b10e975cc90c3d9bd99194801b9654fb3319ea5676', 'advmodel'],
++        'MeshSimAdvanced': ['47f790bc94012a2f5c325b7f426f97da0bd12063f8b9f47af1b974702b9564cf', 'adv'],
++        'GeomSimAbstract': ['3212083a681cc8517326baecaf8db09fdd2922d2abd9f59769b350901bff1f40', 'abstract'],
++        'GeomSimDiscreteModeling': ['de169891a3a81ac83b8536561594f682d04734c50d9488396cc0cf18c65fc39b', 'discrete'],
++        'GeomSimDiscrete': ['245b4f00da0542d74c93b21596bcef73991364e886a5035c10f08ae390bca28e', 'discrete'],
++        'GeomSimVoxel': ['89689ebf8513e150f697cb44c9fd8d489c4ee2e75c87b90d9985a3ef355757dc', 'voxel'],
++        'ParallelMeshSimAdapt': ['47a5d6b5c8e95663d611110e4b6e11404577b4ae6bb2a1403bb0a0b308727b85', 'paralleladapt'],
++        'MeshSim': ['5cd6fb69477110b0f63d1b372c3d739b159c7d6d6971e01226eb96cf086735f7', 'base'],
++        'GeomSimParasolid': ['55e5a4049adefa54737a52a7ddb60a7c1bf18117362425b8c8258dd408ed2278', 'parasolid'],
++        'FieldSim': ['18939b3ca20a48829bb3891f58479a3e36d427251b86d4fc3cf0840802f1f59f', 'base'],
++        'ParallelMeshSim': ['4d10a09a5054b1bb554464702826d4486fc27e9453ac015b3107b14e9ca26cdd', 'parallelmesh'],
++        }
++    },
++    {
+         "version": "16.0-220312",
+         "components": {
+             "msparalleladapt": [
+-- 
+1.8.3.1
+
+
+From b13ac381021231e7be8ab49900ece4c560788088 Mon Sep 17 00:00:00 2001
+From: Cameron Smith <smithc11@rpi.edu>
+Date: Sun, 18 Dec 2022 22:24:01 -0500
+Subject: [PATCH 2/4] esmf 8.4.0 from develop
+
+---
+ var/spack/repos/builtin/packages/esmf/package.py | 13 ++++++++++---
+ 1 file changed, 10 insertions(+), 3 deletions(-)
+
+diff --git a/var/spack/repos/builtin/packages/esmf/package.py b/var/spack/repos/builtin/packages/esmf/package.py
+index dcfde54..31c97b2 100644
+--- a/var/spack/repos/builtin/packages/esmf/package.py
++++ b/var/spack/repos/builtin/packages/esmf/package.py
+@@ -24,6 +24,7 @@ class Esmf(MakefilePackage):
+     # Develop is a special name for spack and is always considered the newest version
+     version("develop", branch="develop")
+     # generate chksum with spack checksum esmf@x.y.z
++    version("8.4.0", sha256="28531810bf1ae78646cda6494a53d455d194400f19dccd13d6361871de42ed0f")
+     version(
+         "8.3.1",
+         sha256="6c39261e55dcdf9781cdfa344417b9606f7f961889d5ec626150f992f04f146d",
+@@ -88,6 +89,7 @@ class Esmf(MakefilePackage):
+         when="@8.3.0b09",
+     )
+     variant("debug", default=False, description="Make a debuggable version of the library")
++    variant("shared", default=True, description="Build shared library")
+ 
+     # Required dependencies
+     depends_on("zlib")
+@@ -245,7 +247,8 @@ def edit(self, spec, prefix):
+         #######
+ 
+         # ESMF_OS must be set for Cray systems
+-        if "platform=cray" in self.spec:
++        # But spack no longer gives arch == cray
++        if self.compiler.name == "cce" or "^cray-mpich" in self.spec:
+             os.environ["ESMF_OS"] = "Unicos"
+ 
+         #######
+@@ -255,7 +258,7 @@ def edit(self, spec, prefix):
+         # ESMF_COMM must be set to indicate which MPI implementation
+         # is used to build the ESMF library.
+         if "+mpi" in spec:
+-            if "platform=cray" in self.spec:
++            if "^cray-mpich" in self.spec:
+                 os.environ["ESMF_COMM"] = "mpi"
+             elif "^mvapich2" in spec:
+                 os.environ["ESMF_COMM"] = "mvapich2"
+@@ -326,7 +329,7 @@ def edit(self, spec, prefix):
+         ##############
+         # ParallelIO #
+         ##############
+-        if "+parallelio" in spec and "+mpi" in spec:
++        if "+parallelio" in spec:
+             os.environ["ESMF_PIO"] = "external"
+             os.environ["ESMF_PIO_LIBPATH"] = spec["parallelio"].prefix.lib
+             os.environ["ESMF_PIO_INCLUDE"] = spec["parallelio"].prefix.include
+@@ -356,6 +359,10 @@ def edit(self, spec, prefix):
+             # ESMF_XERCES_INCLUDE
+             # ESMF_XERCES_LIBPATH
+ 
++        # Static-only option:
++        if "~shared" in spec:
++            os.environ["ESMF_SHARED_LIB_BUILD"] = "OFF"
++
+     @run_after("install")
+     def install_findesmf(self):
+         install_tree("cmake", self.prefix.cmake)
+-- 
+1.8.3.1
+
+
+From 339025e95f82ba821ce48b7bd4e01e8bf73e0877 Mon Sep 17 00:00:00 2001
+From: Cameron Smith <smithc11@rpi.edu>
+Date: Sat, 14 Jan 2023 22:15:25 -0500
+Subject: [PATCH 3/4] patch parallelio package
+
+see https://github.com/spack/spack/issues/34834
+---
+ var/spack/repos/builtin/packages/parallelio/package.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/var/spack/repos/builtin/packages/parallelio/package.py b/var/spack/repos/builtin/packages/parallelio/package.py
+index 91c2e34..f8d432e 100644
+--- a/var/spack/repos/builtin/packages/parallelio/package.py
++++ b/var/spack/repos/builtin/packages/parallelio/package.py
+@@ -36,7 +36,7 @@ class Parallelio(CMakePackage):
+     depends_on("parallel-netcdf", type="link", when="+pnetcdf")
+ 
+     # Allow argument mismatch in gfortran versions > 10 for mpi library compatibility
+-    patch("gfortran.patch", when="+fortran %gcc@10:")
++    patch("gfortran.patch", when="@:2.5.8 +fortran %gcc@10:")
+ 
+     resource(name="genf90", git="https://github.com/PARALLELIO/genf90.git", tag="genf90_200608")
+ 
+-- 
+1.8.3.1
+
+
+From 4d6fda131a96e3bcd2e8a082cfd6133b325b356e Mon Sep 17 00:00:00 2001
+From: Cameron Smith <smithc11@rpi.edu>
+Date: Sat, 14 Jan 2023 23:05:04 -0500
+Subject: [PATCH 4/4] parallelio - update from develop
+
+---
+ .../repos/builtin/packages/parallelio/package.py   | 32 ++++++++++++++++++----
+ 1 file changed, 27 insertions(+), 5 deletions(-)
+
+diff --git a/var/spack/repos/builtin/packages/parallelio/package.py b/var/spack/repos/builtin/packages/parallelio/package.py
+index f8d432e..b479baa 100644
+--- a/var/spack/repos/builtin/packages/parallelio/package.py
++++ b/var/spack/repos/builtin/packages/parallelio/package.py
+@@ -29,9 +29,12 @@ class Parallelio(CMakePackage):
+     variant(
+         "fortran", default=True, description="enable fortran interface (requires netcdf fortran)"
+     )
++    variant("mpi", default=True, description="Use mpi to build, otherwise use mpi-serial")
+ 
+-    depends_on("mpi")
+-    depends_on("netcdf-c +mpi", type="link")
++    depends_on("mpi", when="+mpi")
++    depends_on("mpi-serial", when="~mpi")
++    depends_on("netcdf-c +mpi", type="link", when="+mpi")
++    depends_on("netcdf-c ~mpi", type="link", when="~mpi")
+     depends_on("netcdf-fortran", type="link", when="+fortran")
+     depends_on("parallel-netcdf", type="link", when="+pnetcdf")
+ 
+@@ -44,9 +47,8 @@ def cmake_args(self):
+         define = self.define
+         define_from_variant = self.define_from_variant
+         spec = self.spec
+-        env["CC"] = spec["mpi"].mpicc
+-        env["FC"] = spec["mpi"].mpifc
+         src = self.stage.source_path
++
+         args = [
+             define("NetCDF_C_PATH", spec["netcdf-c"].prefix),
+             define("USER_CMAKE_MODULE_PATH", join_path(src, "cmake")),
+@@ -66,7 +68,18 @@ def cmake_args(self):
+                     define("NetCDF_Fortran_PATH", spec["netcdf-fortran"].prefix),
+                 ]
+             )
+-
++        if spec.satisfies("+mpi"):
++            env["CC"] = spec["mpi"].mpicc
++            env["FC"] = spec["mpi"].mpifc
++        else:
++            env["FFLAGS"] = "-DNO_MPIMOD"
++            args.extend(
++                [
++                    define("PIO_USE_MPISERIAL", True),
++                    define("PIO_ENABLE_TESTS", False),
++                    define("MPISERIAL_PATH", spec["mpi-serial"].prefix),
++                ]
++            )
+         args.extend(
+             [
+                 define_from_variant("PIO_ENABLE_TIMING", "timing"),
+@@ -80,3 +93,12 @@ def url_for_version(self, version):
+         return "https://github.com/NCAR/ParallelIO/archive/pio{0}.tar.gz".format(
+             version.underscored
+         )
++
++    def setup_run_environment(self, env):
++        env.set("PIO_VERSION_MAJOR", "2")
++        valid_values = "netcdf"
++        if self.spec.satisfies("+mpi"):
++            valid_values += ",netcdf4p,netcdf4c"
++            if self.spec.satisfies("+pnetcdf"):
++                valid_values += ",pnetcdf"
++        env.set("PIO_TYPENAME_VALID_VALUES", valid_values)
+-- 
+1.8.3.1
+
