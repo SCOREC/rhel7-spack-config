@@ -1,7 +1,7 @@
 From 4868161fa0747bab1964fbcb92e234efd9ab95bc Mon Sep 17 00:00:00 2001
 From: Cameron Smith <smithc11@rpi.edu>
 Date: Wed, 19 Oct 2022 15:50:49 -0400
-Subject: [PATCH 1/4] simmetrix: add 18.0-220930beta
+Subject: [PATCH 1/6] simmetrix: add 18.0-220930beta
 
 ---
  .../packages/simmetrix-simmodsuite/package.py      | 38 ++++++++++++++++++++--
@@ -69,7 +69,7 @@ index 7aa9684..d8f2757 100644
 From b13ac381021231e7be8ab49900ece4c560788088 Mon Sep 17 00:00:00 2001
 From: Cameron Smith <smithc11@rpi.edu>
 Date: Sun, 18 Dec 2022 22:24:01 -0500
-Subject: [PATCH 2/4] esmf 8.4.0 from develop
+Subject: [PATCH 2/6] esmf 8.4.0 from develop
 
 ---
  var/spack/repos/builtin/packages/esmf/package.py | 13 ++++++++++---
@@ -141,7 +141,7 @@ index dcfde54..31c97b2 100644
 From 339025e95f82ba821ce48b7bd4e01e8bf73e0877 Mon Sep 17 00:00:00 2001
 From: Cameron Smith <smithc11@rpi.edu>
 Date: Sat, 14 Jan 2023 22:15:25 -0500
-Subject: [PATCH 3/4] patch parallelio package
+Subject: [PATCH 3/6] patch parallelio package
 
 see https://github.com/spack/spack/issues/34834
 ---
@@ -168,7 +168,7 @@ index 91c2e34..f8d432e 100644
 From 4d6fda131a96e3bcd2e8a082cfd6133b325b356e Mon Sep 17 00:00:00 2001
 From: Cameron Smith <smithc11@rpi.edu>
 Date: Sat, 14 Jan 2023 23:05:04 -0500
-Subject: [PATCH 4/4] parallelio - update from develop
+Subject: [PATCH 4/6] parallelio - update from develop
 
 ---
  .../repos/builtin/packages/parallelio/package.py   | 32 ++++++++++++++++++----
@@ -237,6 +237,74 @@ index f8d432e..b479baa 100644
 +            if self.spec.satisfies("+pnetcdf"):
 +                valid_values += ",pnetcdf"
 +        env.set("PIO_TYPENAME_VALID_VALUES", valid_values)
+-- 
+1.8.3.1
+
+
+From 6689c9dd7ae2d1822fc4d53099942cdeab012811 Mon Sep 17 00:00:00 2001
+From: Cameron Smith <smithc11@rpi.edu>
+Date: Fri, 3 Feb 2023 20:01:13 -0500
+Subject: [PATCH 5/6] pumi: support building without a fortran compiler
+
+---
+ var/spack/repos/builtin/packages/pumi/package.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/var/spack/repos/builtin/packages/pumi/package.py b/var/spack/repos/builtin/packages/pumi/package.py
+index 3d9b296..9caf68b 100644
+--- a/var/spack/repos/builtin/packages/pumi/package.py
++++ b/var/spack/repos/builtin/packages/pumi/package.py
+@@ -84,7 +84,6 @@ def cmake_args(self):
+             "-DCMAKE_C_COMPILER=%s" % spec["mpi"].mpicc,
+             "-DCMAKE_CXX_COMPILER=%s" % spec["mpi"].mpicxx,
+             self.define_from_variant("BUILD_SHARED_LIBS", "shared"),
+-            "-DCMAKE_Fortran_COMPILER=%s" % spec["mpi"].mpifc,
+             self.define_from_variant("PUMI_FORTRAN_INTERFACE", "fortran"),
+             "-DMDS_ID_TYPE=%s" % ("long" if "+int64" in spec else "int"),
+             "-DSKIP_SIMMETRIX_VERSION_CHECK=%s"
+@@ -92,6 +91,8 @@ def cmake_args(self):
+             self.define_from_variant("IS_TESTING", "testing"),
+             "-DMESHES=%s" % join_path(self.stage.source_path, "pumi-meshes"),
+         ]
++        if spec.satisfies("fortran"):
++            args += ["-DCMAKE_Fortran_COMPILER=%s" % spec["mpi"].mpifc]
+         if spec.satisfies("@2.2.3"):
+             args += ["-DCMAKE_CXX_STANDARD=11"]
+         if self.spec.satisfies("simmodsuite=base"):
+-- 
+1.8.3.1
+
+
+From 19b1abcc69d610244dee26ede70e04211add58d5 Mon Sep 17 00:00:00 2001
+From: Cameron Smith <smithc11@rpi.edu>
+Date: Fri, 3 Feb 2023 20:01:45 -0500
+Subject: [PATCH 6/6] zoltan: support building without a fortran compiler
+
+---
+ var/spack/repos/builtin/packages/zoltan/package.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/var/spack/repos/builtin/packages/zoltan/package.py b/var/spack/repos/builtin/packages/zoltan/package.py
+index 84f9253..54cec71 100644
+--- a/var/spack/repos/builtin/packages/zoltan/package.py
++++ b/var/spack/repos/builtin/packages/zoltan/package.py
+@@ -132,7 +132,6 @@ def configure_args(self):
+                 [
+                     "CC={0}".format(spec["mpi"].mpicc),
+                     "CXX={0}".format(spec["mpi"].mpicxx),
+-                    "FC={0}".format(spec["mpi"].mpifc),
+                     "--with-mpi={0}".format(spec["mpi"].prefix),
+                     # NOTE: Zoltan assumes that it's linking against an MPI library
+                     # that can be found with '-lmpi' which isn't the case for many
+@@ -142,6 +141,8 @@ def configure_args(self):
+                     "--with-mpi-libs= ",
+                 ]
+             )
++            if "+fortran" in spec:
++               config_args.extend( ["FC={0}".format(spec["mpi"].mpifc)] )
+ 
+         config_fcflags = config_cflags[:]
+         if spec.satisfies("%gcc@10:+fortran"):
 -- 
 1.8.3.1
 
