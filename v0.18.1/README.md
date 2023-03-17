@@ -80,10 +80,10 @@ Fin.
 
 ## install new simmodsuite
 
-Starting from scratch in the v0154_2 environment:
+Starting from scratch in the environment:
 
 ```
-source /opt/scorec/spack/spack0.15.4/setupSpack.sh
+source /opt/scorec/spack/spack0.##.#/setupSpack.sh
 ```
 
 download and create checksum
