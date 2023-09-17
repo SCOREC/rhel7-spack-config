@@ -55,6 +55,7 @@ MeshSim.zip
 ParallelMeshSimAdapt.zip
 ParallelMeshSim.zip
 GeomSimParasolid.zip
+MeshSimCrack.zip
 )
 
 #http://www.simmetrix.com/application/release/M/14.0-190928/release/aciskrnl-linux64.tgz
@@ -83,7 +84,9 @@ discrete-linux${wordSz}.tgz fdcore-linux${wordSz}.tgz
 gmabstract-linux${wordSz}.tgz gmadv-linux${wordSz}.tgz 
 msadapt-linux${wordSz}.tgz msadv-linux${wordSz}.tgz
 mscore-linux${wordSz}.tgz msparalleladapt-linux${wordSz}.tgz 
-msparallelmesh-linux${wordSz}.tgz psint-linux${wordSz}.tgz pskrnl-linux${wordSz}.tgz )
+msparallelmesh-linux${wordSz}.tgz psint-linux${wordSz}.tgz pskrnl-linux${wordSz}.tgz
+mscrack-linux${wordSz}.tgz
+)
 
 set +e
 for comp in ${components[@]}; do 
