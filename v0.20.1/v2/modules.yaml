@@ -16,7 +16,7 @@
 modules:
   default:
     roots:
-     lmod: /opt/scorec/spack/v0181_1/lmod
+     lmod: /opt/scorec/spack/v0201_2/lmod
     enable:
       - lmod
     lmod:
