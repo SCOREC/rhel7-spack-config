@@ -1,0 +1,134 @@
+# -------------------------------------------------------------------------
+# This is the default configuration for Spack's module file generation.
+#
+# Settings here are versioned with Spack and are intended to provide
+# sensible defaults out of the box. Spack maintainers should edit this
+# file to keep it current.
+#
+# Users can override these settings by editing the following files.
+#
+# Per-spack-instance settings (overrides defaults):
+#   $SPACK_ROOT/etc/spack/modules.yaml
+#
+# Per-user settings (overrides default and site settings):
+#   ~/.spack/modules.yaml
+# -------------------------------------------------------------------------
+modules:
+  default:
+    roots:
+     lmod: /opt/scorec/spack/v0181_1/lmod
+    enable:
+      - lmod
+    lmod:
+      core_compilers:
+      - 'gcc@7.4.0'
+      hierarchy:
+      - mpi
+      hash_length: 0
+      projections:
+        all: '{name}/{version}'
+        ^simmetrix-simmodsuite: '{name}/{version}-simmodsuite-{^simmetrix-simmodsuite.version}'
+      all:
+        environment:
+          set:
+            ${PACKAGE}_ROOT: ${PREFIX}
+      simmetrix-simmodsuite:
+        environment:
+          set:
+            SIM_LICENSE_FILE: /net/common/meshSim/license/license.txt
+      pumi:
+        suffixes:
+          ^metis+int64: int64
+          ^metis~int64: int32
+          +shared: shared
+        autoload: all
+      metis:
+        suffixes:
+          +int64: int64
+          ~int64: int32
+        autoload: all
+      hwloc:
+        suffixes:
+          +cuda: cuda
+      zstd:
+        suffixes:
+          +programs: programs
+      hypre:
+        suffixes:
+          +int64: int64
+          ~int64: int32
+        autoload: all
+      fftw:
+        autoload: all
+      parmetis:
+        suffixes:
+          ^metis+int64: int64
+          ^metis~int64: int32
+        autoload: all
+      zoltan:
+        suffixes:
+          ^metis+int64: int64
+          ^metis~int64: int32
+        autoload: all
+      superlu-dist:
+        suffixes:
+          +int64: int64
+          ~int64: int32
+        autoload: all
+      trilinos:
+        suffixes:
+          +debug: debug
+          +openmp: openmp
+      hdf5:
+        suffixes:
+          +fortran: ftn
+        autoload: all
+      petsc:
+        suffixes:
+          +int64: int64
+          ~int64: int32
+          ^hdf5+fortran: hdf5+ftn
+          +complex: complex
+          ~complex: real
+          clanguage=C++: c++
+          clanguage=C: c
+        autoload: all
+      llvm:
+        suffixes:
+          +clang: clang-tools
+        autoload: all
+      kokkos:
+        suffixes:
+          +cuda: cuda
+          +openmp: openmp
+        autoload: all
+      omega-h:
+        suffixes:
+          +mpi: mpi
+          +trilinos^trilinos+debug: trilinosDebug
+          +trilinos^trilinos~debug: trilinosOpt
+          +kokkos^kokkos+openmp+debug: kokkosDebugOpenMP
+          +kokkos^kokkos+openmp~debug: kokkosOpenMP
+        autoload: all
+      py-pandas:
+        autoload: all
+      py-matplotlib:
+        autoload: all
+      py-scipy:
+        autoload: all
+      magma:
+        autoload: all
+      netcdf-cxx4:
+        autoload: all
+      netcdf-c:
+        suffixes:
+          +parallel-netcdf: parallel
+        autoload: all
+      esmf:
+        autoload: all
+      subversion:
+        autoload: all
+      include:
+      - gcc
+      exclude:
+      - mpc
