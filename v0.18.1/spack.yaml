@@ -1,7 +1,5 @@
 #comment
 spack:
-  concretizer:
-    unify: when_possible
   config:
     target: x86_64
     install_tree:
@@ -44,7 +42,7 @@ spack:
       +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2023.1-230428dev
   - pumiSim2023.1-230907dev:
     - pumi@master %gcc@11.2.0 +shared simmodsuite=full ~simmodsuite_version_check
-      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2023.1-230907dev
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2023.1-230907dev ^/prf5im2
   specs:
   - gcc@7.4.0%gcc@4.8.5_rhel7+binutils
   - gcc@11.2.0%gcc@7.4.0
