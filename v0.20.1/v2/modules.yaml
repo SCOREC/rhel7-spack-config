@@ -31,7 +31,7 @@ modules:
       all:
         environment:
           set:
-            '{name}_ROOT': ${prefix}
+            '{name}_ROOT': '{prefix}'
       simmetrix-simmodsuite:
         environment:
           set:
