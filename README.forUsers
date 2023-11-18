@@ -8,6 +8,22 @@ will not be listed under `module av` (or `module av foo`) until `gcc` and
 Another mechanism to search for available packages is `module spider` or
 `module spider <name of package>`.
 
+## Latest software stack
+
+==GCC 11.2.0 with MPICH 4.1.1==
+
+```
+module unuse /opt/scorec/spack/lmod/linux-rhel7-x86_64/Core 
+module use /opt/scorec/spack/v0201_4/lmod/linux-rhel7-x86_64/Core 
+module load gcc/11.2.0-zcqgw mpich/4.1.1-6p32n
+```
+
+## Deprecated software stacks
+
+The following stacks of packages will no longer be updated.  Please use the
+latest stack if possible.
+
+
 ==GCC 7.3.0 with MPICH==
 
 The following module path is currently (as of March 21, 2022) the default.
@@ -52,8 +68,24 @@ module load llvm cmake/3.20.0
 
 ==GCC 11.2.0 with MPICH 4.0.2==
 
+Note, v0181_1 is a symlink to v0181_2... I broke the original v0181_1 stack.
+
+```
+module unuse /opt/scorec/spack/lmod/linux-rhel7-x86_64/Core 
+module use /opt/scorec/spack/v0181_1/lmod/linux-rhel7-x86_64/Core 
+module load gcc/11.2.0 mpich/4.0.2
+module use /opt/scorec/spack/v0181_2/lmod/linux-rhel7-x86_64/mpich/4.0.2-prf5im2/Core
+```
+
+==GCC 11.2.0 with MPICH 4.0.2==
+
+This environment has a problem caused by using concretizer:unify:when_posssible
+instead of concretizer:unify:false .  It is only partially functional and not
+recommended for use.
+
 ```
 module unuse /opt/scorec/spack/lmod/linux-rhel7-x86_64/Core 
 module use /opt/scorec/spack/v0201_2/lmod/linux-rhel7-x86_64/Core 
 module load gcc/11.2.0 mpich/4.0.2
 ```
+
